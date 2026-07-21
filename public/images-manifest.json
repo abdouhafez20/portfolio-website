@@ -1,0 +1,553 @@
+{
+  "/images/after-1.jpg": {
+    "original": "/images/after-1.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/after-1-320.webp",
+        "jpeg": "/images/after-1-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/after-1-640.webp",
+        "jpeg": "/images/after-1-640.jpg"
+      }
+    ]
+  },
+  "/images/after-2.jpg": {
+    "original": "/images/after-2.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/after-2-320.webp",
+        "jpeg": "/images/after-2-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/after-2-640.webp",
+        "jpeg": "/images/after-2-640.jpg"
+      }
+    ]
+  },
+  "/images/before-1.jpg": {
+    "original": "/images/before-1.jpg",
+    "width": 172,
+    "height": 179,
+    "aspectRatio": "0.961",
+    "variants": []
+  },
+  "/images/before-2.jpg": {
+    "original": "/images/before-2.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/before-2-320.webp",
+        "jpeg": "/images/before-2-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/before-2-640.webp",
+        "jpeg": "/images/before-2-640.jpg"
+      }
+    ]
+  },
+  "/images/behavioral-science-01.jpg": {
+    "original": "/images/behavioral-science-01.jpg",
+    "width": 379,
+    "height": 538,
+    "aspectRatio": "0.704",
+    "variants": [
+      {
+        "width": 320,
+        "height": 454,
+        "webp": "/images/behavioral-science-01-320.webp",
+        "jpeg": "/images/behavioral-science-01-320.jpg"
+      }
+    ]
+  },
+  "/images/cover-1.jpg": {
+    "original": "/images/cover-1.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-1-320.webp",
+        "jpeg": "/images/cover-1-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-1-640.webp",
+        "jpeg": "/images/cover-1-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-2.jpg": {
+    "original": "/images/cover-2.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-2-320.webp",
+        "jpeg": "/images/cover-2-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-2-640.webp",
+        "jpeg": "/images/cover-2-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-3.jpg": {
+    "original": "/images/cover-3.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-3-320.webp",
+        "jpeg": "/images/cover-3-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-3-640.webp",
+        "jpeg": "/images/cover-3-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-4.jpg": {
+    "original": "/images/cover-4.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-4-320.webp",
+        "jpeg": "/images/cover-4-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-4-640.webp",
+        "jpeg": "/images/cover-4-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-5.jpg": {
+    "original": "/images/cover-5.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-5-320.webp",
+        "jpeg": "/images/cover-5-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-5-640.webp",
+        "jpeg": "/images/cover-5-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-6.jpg": {
+    "original": "/images/cover-6.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-6-320.webp",
+        "jpeg": "/images/cover-6-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-6-640.webp",
+        "jpeg": "/images/cover-6-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-7.jpg": {
+    "original": "/images/cover-7.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-7-320.webp",
+        "jpeg": "/images/cover-7-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-7-640.webp",
+        "jpeg": "/images/cover-7-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-8.jpg": {
+    "original": "/images/cover-8.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-8-320.webp",
+        "jpeg": "/images/cover-8-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-8-640.webp",
+        "jpeg": "/images/cover-8-640.jpg"
+      }
+    ]
+  },
+  "/images/cover-9.jpg": {
+    "original": "/images/cover-9.jpg",
+    "width": 864,
+    "height": 1184,
+    "aspectRatio": "0.730",
+    "variants": [
+      {
+        "width": 320,
+        "height": 439,
+        "webp": "/images/cover-9-320.webp",
+        "jpeg": "/images/cover-9-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 877,
+        "webp": "/images/cover-9-640.webp",
+        "jpeg": "/images/cover-9-640.jpg"
+      }
+    ]
+  },
+  "/images/profile-photo.jpg": {
+    "original": "/images/profile-photo.jpg",
+    "width": 1920,
+    "height": 2560,
+    "aspectRatio": "0.750",
+    "variants": [
+      {
+        "width": 320,
+        "height": 427,
+        "webp": "/images/profile-photo-320.webp",
+        "jpeg": "/images/profile-photo-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 853,
+        "webp": "/images/profile-photo-640.webp",
+        "jpeg": "/images/profile-photo-640.jpg"
+      },
+      {
+        "width": 1024,
+        "height": 1365,
+        "webp": "/images/profile-photo-1024.webp",
+        "jpeg": "/images/profile-photo-1024.jpg"
+      },
+      {
+        "width": 1600,
+        "height": 2133,
+        "webp": "/images/profile-photo-1600.webp",
+        "jpeg": "/images/profile-photo-1600.jpg"
+      }
+    ]
+  },
+  "/images/samples\\behavioral-science\\behavioral-science-01.jpg": {
+    "original": "/images/samples\\behavioral-science\\behavioral-science-01.jpg",
+    "width": 379,
+    "height": 538,
+    "aspectRatio": "0.704",
+    "variants": [
+      {
+        "width": 320,
+        "height": 454,
+        "webp": "/images/behavioral-science-01-320.webp",
+        "jpeg": "/images/behavioral-science-01-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\behavioral-science\\behavioral-science-02.jpg": {
+    "original": "/images/samples\\behavioral-science\\behavioral-science-02.jpg",
+    "width": 453,
+    "height": 636,
+    "aspectRatio": "0.712",
+    "variants": [
+      {
+        "width": 320,
+        "height": 449,
+        "webp": "/images/behavioral-science-02-320.webp",
+        "jpeg": "/images/behavioral-science-02-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\behavioral-science\\behavioral-science-03.jpg": {
+    "original": "/images/samples\\behavioral-science\\behavioral-science-03.jpg",
+    "width": 382,
+    "height": 537,
+    "aspectRatio": "0.711",
+    "variants": [
+      {
+        "width": 320,
+        "height": 450,
+        "webp": "/images/behavioral-science-03-320.webp",
+        "jpeg": "/images/behavioral-science-03-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\internal-medicine\\internal-medicine-01.jpg": {
+    "original": "/images/samples\\internal-medicine\\internal-medicine-01.jpg",
+    "width": 570,
+    "height": 806,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 452,
+        "webp": "/images/internal-medicine-01-320.webp",
+        "jpeg": "/images/internal-medicine-01-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\internal-medicine\\internal-medicine-02.jpg": {
+    "original": "/images/samples\\internal-medicine\\internal-medicine-02.jpg",
+    "width": 570,
+    "height": 805,
+    "aspectRatio": "0.708",
+    "variants": [
+      {
+        "width": 320,
+        "height": 452,
+        "webp": "/images/internal-medicine-02-320.webp",
+        "jpeg": "/images/internal-medicine-02-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\internal-medicine\\internal-medicine-03.jpg": {
+    "original": "/images/samples\\internal-medicine\\internal-medicine-03.jpg",
+    "width": 571,
+    "height": 799,
+    "aspectRatio": "0.715",
+    "variants": [
+      {
+        "width": 320,
+        "height": 448,
+        "webp": "/images/internal-medicine-03-320.webp",
+        "jpeg": "/images/internal-medicine-03-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\text-bank\\text-bank-01.jpg": {
+    "original": "/images/samples\\text-bank\\text-bank-01.jpg",
+    "width": 474,
+    "height": 637,
+    "aspectRatio": "0.744",
+    "variants": [
+      {
+        "width": 320,
+        "height": 430,
+        "webp": "/images/text-bank-01-320.webp",
+        "jpeg": "/images/text-bank-01-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\text-bank\\text-bank-02.jpg": {
+    "original": "/images/samples\\text-bank\\text-bank-02.jpg",
+    "width": 466,
+    "height": 632,
+    "aspectRatio": "0.737",
+    "variants": [
+      {
+        "width": 320,
+        "height": 434,
+        "webp": "/images/text-bank-02-320.webp",
+        "jpeg": "/images/text-bank-02-320.jpg"
+      }
+    ]
+  },
+  "/images/samples\\text-bank\\text-bank-03.jpg": {
+    "original": "/images/samples\\text-bank\\text-bank-03.jpg",
+    "width": 472,
+    "height": 630,
+    "aspectRatio": "0.749",
+    "variants": [
+      {
+        "width": 320,
+        "height": 427,
+        "webp": "/images/text-bank-03-320.webp",
+        "jpeg": "/images/text-bank-03-320.jpg"
+      }
+    ]
+  },
+  "/images/slide-1.jpg": {
+    "original": "/images/slide-1.jpg",
+    "width": 382,
+    "height": 537,
+    "aspectRatio": "0.711",
+    "variants": [
+      {
+        "width": 320,
+        "height": 450,
+        "webp": "/images/slide-1-320.webp",
+        "jpeg": "/images/slide-1-320.jpg"
+      }
+    ]
+  },
+  "/images/slide-2.jpg": {
+    "original": "/images/slide-2.jpg",
+    "width": 1414,
+    "height": 2000,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 453,
+        "webp": "/images/slide-2-320.webp",
+        "jpeg": "/images/slide-2-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 905,
+        "webp": "/images/slide-2-640.webp",
+        "jpeg": "/images/slide-2-640.jpg"
+      },
+      {
+        "width": 1024,
+        "height": 1448,
+        "webp": "/images/slide-2-1024.webp",
+        "jpeg": "/images/slide-2-1024.jpg"
+      }
+    ]
+  },
+  "/images/slide-3.jpg": {
+    "original": "/images/slide-3.jpg",
+    "width": 1414,
+    "height": 2000,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 453,
+        "webp": "/images/slide-3-320.webp",
+        "jpeg": "/images/slide-3-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 905,
+        "webp": "/images/slide-3-640.webp",
+        "jpeg": "/images/slide-3-640.jpg"
+      },
+      {
+        "width": 1024,
+        "height": 1448,
+        "webp": "/images/slide-3-1024.webp",
+        "jpeg": "/images/slide-3-1024.jpg"
+      }
+    ]
+  },
+  "/images/slide-4.jpg": {
+    "original": "/images/slide-4.jpg",
+    "width": 570,
+    "height": 806,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 452,
+        "webp": "/images/slide-4-320.webp",
+        "jpeg": "/images/slide-4-320.jpg"
+      }
+    ]
+  },
+  "/images/slide-5.jpg": {
+    "original": "/images/slide-5.jpg",
+    "width": 1414,
+    "height": 2000,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 453,
+        "webp": "/images/slide-5-320.webp",
+        "jpeg": "/images/slide-5-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 905,
+        "webp": "/images/slide-5-640.webp",
+        "jpeg": "/images/slide-5-640.jpg"
+      },
+      {
+        "width": 1024,
+        "height": 1448,
+        "webp": "/images/slide-5-1024.webp",
+        "jpeg": "/images/slide-5-1024.jpg"
+      }
+    ]
+  },
+  "/images/slide-6.jpg": {
+    "original": "/images/slide-6.jpg",
+    "width": 1414,
+    "height": 2000,
+    "aspectRatio": "0.707",
+    "variants": [
+      {
+        "width": 320,
+        "height": 453,
+        "webp": "/images/slide-6-320.webp",
+        "jpeg": "/images/slide-6-320.jpg"
+      },
+      {
+        "width": 640,
+        "height": 905,
+        "webp": "/images/slide-6-640.webp",
+        "jpeg": "/images/slide-6-640.jpg"
+      },
+      {
+        "width": 1024,
+        "height": 1448,
+        "webp": "/images/slide-6-1024.webp",
+        "jpeg": "/images/slide-6-1024.jpg"
+      }
+    ]
+  }
+}

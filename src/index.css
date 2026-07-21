@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --radius: 0.5rem;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(42, 88, 64, 0.2);
+    color: inherit;
+  }
+
+  .dark ::selection {
+    background: rgba(77, 158, 114, 0.3);
+  }
+
+  /* 🔥 IMPORTANT: skill bars GPU animation */
+  .skill-fill {
+    transform-origin: left;
+    will-change: transform;
+  }
+
+  [dir="rtl"] .skill-fill {
+    transform-origin: right;
+  }
+}
+
+@layer components {
+  .btn-shimmer {
+    @apply relative overflow-hidden bg-forest text-white uppercase font-body font-semibold tracking-[0.3em] text-[11px] px-8 py-4 rounded-full transition-all duration-300;
+    background-size: 200% 100%;
+  }
+
+  .btn-shimmer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    animation: shimmer 4s linear infinite;
+  }
+
+  .btn-shimmer:hover {
+    @apply bg-forest-hover -translate-y-0.5;
+    box-shadow: 0 8px 24px rgba(42, 88, 64, 0.2);
+  }
+
+  .btn-shimmer:focus {
+    @apply ring-2 ring-offset-2 ring-forest;
+  }
+
+  .dark .btn-shimmer {
+    @apply bg-dark-forest;
+  }
+
+  .dark .btn-shimmer:hover {
+    @apply bg-dark-forest/90;
+  }
+
+  .dark .btn-shimmer:focus {
+    @apply ring-offset-dark-bg;
+  }
+
+  .btn-outline {
+    @apply bg-transparent border border-ink text-ink font-body font-medium text-[13px] px-8 py-4 rounded-full transition-all duration-300;
+  }
+
+  .btn-outline:hover {
+    @apply bg-black/[0.04];
+  }
+
+  .btn-outline:focus {
+    @apply ring-2 ring-offset-2 ring-ink;
+  }
+
+  .dark .btn-outline {
+    @apply border-dark-text text-dark-text hover:bg-white/[0.08];
+  }
+
+  .dark .btn-outline:focus {
+    @apply ring-dark-text ring-offset-dark-bg;
+  }
+
+  .card-surface {
+    @apply bg-white/50 border border-card-border rounded-3xl p-6 transition-all duration-300;
+  }
+
+  .card-surface:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(28, 28, 26, 0.08);
+  }
+
+  .dark .card-surface {
+    @apply bg-white/[0.02] border-dark-border;
+  }
+
+  .dark .card-surface:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .card-surface:focus-within {
+    @apply ring-2 ring-forest/50;
+  }
+
+  .eyebrow {
+    @apply text-[10px] uppercase tracking-[0.36em] font-body font-medium text-mist;
+  }
+
+  /* 🔥 optimized reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: transform, opacity;
+  }
+
+  .reveal.revealed {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  .reveal-delay-1 { transition-delay: 100ms; }
+  .reveal-delay-2 { transition-delay: 200ms; }
+  .reveal-delay-3 { transition-delay: 300ms; }
+  .reveal-delay-4 { transition-delay: 400ms; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .btn-shimmer::before {
+      animation: none;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-display-italic {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
