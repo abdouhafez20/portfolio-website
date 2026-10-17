@@ -25,6 +25,7 @@ export default function WorkSection({ lang }: WorkSectionProps) {
   const [openCollectionId, setOpenCollectionId] = useState<string | null>(null);
   const [modalItem, setModalItem] = useState<ViewablePdf | null>(null);
   const [galleryImages, setGalleryImages] = useState<string[] | null>(null);
+  const [galleryEmbedUrl, setGalleryEmbedUrl] = useState<string | null>(null);
   const [galleryTitle, setGalleryTitle] = useState<string | undefined>(undefined);
   const [galleryShowNotice, setGalleryShowNotice] = useState<boolean>(false);
   const [galleryOnRequest, setGalleryOnRequest] = useState<(() => void) | null>(null);
@@ -52,6 +53,7 @@ export default function WorkSection({ lang }: WorkSectionProps) {
   const openGallery = (project: WorkProject, showNotice = false) => {
     setOpenCollectionId(null);
     setGalleryImages(project.sampleImages ? [...project.sampleImages] : null);
+    setGalleryEmbedUrl(null);
     setGalleryTitle(project.title);
     setGalleryShowNotice(!!showNotice);
     setGalleryOnRequest(() => () => openWhatsApp(project));
@@ -66,6 +68,7 @@ export default function WorkSection({ lang }: WorkSectionProps) {
     if (project.pdfUrl) {
       setOpenCollectionId(null);
       setGalleryImages(null);
+      setGalleryEmbedUrl(null);
       setModalItem({ title: project.title, pdfUrl: project.pdfUrl });
       return;
     }
@@ -73,9 +76,21 @@ export default function WorkSection({ lang }: WorkSectionProps) {
     openGallery(project, showNotice);
   };
 
-  const openAssetView = (asset: { title: string; pdfUrl?: string | null; imageGallery?: readonly string[] }) => {
+  const openAssetView = (asset: { title: string; pdfUrl?: string | null; imageGallery?: readonly string[]; flipbookUrl?: string }) => {
+    if (asset.flipbookUrl) {
+      setOpenCollectionId(null);
+      setModalItem(null);
+      setGalleryImages([]);
+      setGalleryEmbedUrl(asset.flipbookUrl);
+      setGalleryTitle(asset.title);
+      setGalleryShowNotice(false);
+      setGalleryOnRequest(null);
+      return;
+    }
+
     if (asset.pdfUrl) {
       setGalleryImages(null);
+      setGalleryEmbedUrl(null);
       setModalItem({ title: asset.title, pdfUrl: asset.pdfUrl });
       return;
     }
@@ -83,6 +98,7 @@ export default function WorkSection({ lang }: WorkSectionProps) {
     if (asset.imageGallery?.length) {
       setOpenCollectionId(null);
       setGalleryImages([...asset.imageGallery]);
+      setGalleryEmbedUrl(null);
       setGalleryTitle(asset.title);
       setGalleryShowNotice(false);
       setGalleryOnRequest(null);
@@ -216,11 +232,12 @@ export default function WorkSection({ lang }: WorkSectionProps) {
           onClose={() => setModalItem(null)}
         />
       )}
-      {galleryImages && (
+      {(galleryImages !== null || galleryEmbedUrl !== null) && (
         <SampleGallery
-          images={galleryImages}
+          images={galleryImages ?? []}
+          embedUrl={galleryEmbedUrl ?? undefined}
           title={galleryTitle}
-          onClose={() => setGalleryImages(null)}
+          onClose={() => { setGalleryImages(null); setGalleryEmbedUrl(null); }}
           showNotice={galleryShowNotice}
           onRequest={() => { if (galleryOnRequest) galleryOnRequest(); }}
         />

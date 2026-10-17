@@ -7,6 +7,7 @@ export interface WorkAsset {
   pages?: string;
   pdfUrl?: string | null;
   imageGallery?: readonly string[];
+  flipbookUrl?: string;
 }
 
 export interface WorkProject {

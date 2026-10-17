@@ -781,18 +781,8 @@ const internalMedicineAssets = [
   {
     title: 'Genitourinary',
     type: 'Clinical Notes',
-    pages: 'Image gallery',
-    imageGallery: [
-      '/pdfs/internal-medicine-genitourinary/1.jpg',
-      '/pdfs/internal-medicine-genitourinary/2.jpg',
-      '/pdfs/internal-medicine-genitourinary/3.jpg',
-      '/pdfs/internal-medicine-genitourinary/4.jpg',
-      '/pdfs/internal-medicine-genitourinary/6.jpg',
-      '/pdfs/internal-medicine-genitourinary/7.jpg',
-      '/pdfs/internal-medicine-genitourinary/8.jpg',
-      '/pdfs/internal-medicine-genitourinary/9.jpg',
-      '/pdfs/internal-medicine-genitourinary/CHAPTERR-11_pages-to-jpg-0006.jpg',
-    ],
+    pages: 'Heyzine flipbook',
+    flipbookUrl: 'https://heyzine.com/flip-book/9fffc9514b.html#page/2',
   },
   {
     title: 'Hematology',

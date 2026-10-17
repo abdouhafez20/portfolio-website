@@ -223,7 +223,7 @@ function FileRows({
               </div>
             </div>
             <div className="flex gap-2 items-center">
-              {asset.pdfUrl || asset.imageGallery?.length ? (
+              {asset.pdfUrl || asset.flipbookUrl || asset.imageGallery?.length ? (
                 <ProjectActions
                   compact={!isNarrow}
                   touchLarge={isNarrow}
@@ -231,7 +231,7 @@ function FileRows({
                   onView={() => {
                     if (asset.pdfUrl && onViewAsset) {
                       onViewAsset(asset);
-                    } else if (asset.imageGallery?.length && onViewGallery) {
+                    } else if ((asset.flipbookUrl || asset.imageGallery?.length) && onViewGallery) {
                       onViewGallery(asset);
                     }
                   }}

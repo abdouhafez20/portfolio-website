@@ -4,6 +4,7 @@ import NoticeCard from '@/components/ui/NoticeCard';
 
 interface Props {
   images: string[];
+  embedUrl?: string;
   title?: string;
   initialIndex?: number;
   onClose: () => void;
@@ -11,7 +12,7 @@ interface Props {
   onRequest?: () => void;
 }
 
-export default function SampleGallery({ images, title, initialIndex = 0, onClose, showNotice = false, onRequest }: Props) {
+export default function SampleGallery({ images, embedUrl, title, initialIndex = 0, onClose, showNotice = false, onRequest }: Props) {
   const [index, setIndex] = useState(initialIndex);
   const [isDark, setIsDark] = useState(false);
   const rootRef = useRef<HTMLDivElement | null>(null);
@@ -30,7 +31,7 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
 
   const startTimer = () => {
     stopTimer();
-    if (images.length <= 1) return;
+    if (embedUrl || images.length <= 1) return;
     timerRef.current = window.setInterval(() => {
       setIndex(i => (i + 1) % images.length);
     }, 3000);
@@ -40,7 +41,7 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
   useEffect(() => {
     startTimer();
     return () => stopTimer();
-  }, [images.length]);
+  }, [images.length, embedUrl]);
 
   // Focus modal on open, save previous focus, and detect dark mode
   useEffect(() => {
@@ -69,8 +70,8 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
         handleClose();
         return;
       }
-      if (e.key === 'ArrowLeft') { setIndex(i => (i - 1 + images.length) % images.length); startTimer(); }
-      if (e.key === 'ArrowRight') { setIndex(i => (i + 1) % images.length); startTimer(); }
+      if (images.length > 1 && e.key === 'ArrowLeft') { setIndex(i => (i - 1 + images.length) % images.length); startTimer(); }
+      if (images.length > 1 && e.key === 'ArrowRight') { setIndex(i => (i + 1) % images.length); startTimer(); }
 
       if (e.key === 'Tab') {
         const container = rootRef.current;
@@ -91,7 +92,7 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
     }
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [images.length]);
+  }, [images.length, embedUrl]);
 
   const handleClose = () => {
     stopTimer();
@@ -171,7 +172,7 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
         )}
 
         {/* Edge gradients (use inline style; Tailwind bracket notation here was invalid) */}
-        <div
+        {!embedUrl && <div
           aria-hidden="true"
           style={{
             position: 'absolute',
@@ -185,9 +186,9 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
             pointerEvents: 'none',
             zIndex: 25,
           }}
-        />
+        />}
 
-        <div
+        {!embedUrl && <div
           aria-hidden="true"
           style={{
             position: 'absolute',
@@ -201,11 +202,23 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
             pointerEvents: 'none',
             zIndex: 25,
           }}
-        />
+        />}
 
         {/* Slides */}
         <div style={{ overflow: 'hidden', width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}>
           <div style={{ flex: 1, overflow: 'hidden', position: 'relative' }}>
+            {embedUrl ? (
+              <div style={{ display: 'flex', height: '100%', alignItems: 'center', justifyContent: 'center', padding: '48px 16px 8px', boxSizing: 'border-box' }}>
+                <iframe
+                  src={embedUrl}
+                  title={title ?? 'Embedded flipbook'}
+                  allowFullScreen
+                  allow="autoplay; fullscreen; clipboard-write"
+                  scrolling="no"
+                  style={{ width: '100%', height: '428px', border: '1px solid lightgray' }}
+                />
+              </div>
+            ) : <>
             <div
               style={{
                 display: 'flex',
@@ -266,10 +279,11 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
                 </button>
               </>
             )}
+            </>}
           </div>
 
           {/* Footer */}
-          <div className="flex flex-col items-center gap-3 py-3 px-4 sm:px-6 w-full">
+          {!embedUrl && <div className="flex flex-col items-center gap-3 py-3 px-4 sm:px-6 w-full">
             {showNotice && (
               <div className="w-full max-w-[720px]">
                 <NoticeCard onRequest={onRequest} />
@@ -291,7 +305,7 @@ export default function SampleGallery({ images, title, initialIndex = 0, onClose
                 ))}
               </div>
             )}
-          </div>
+          </div>}
         </div>
       </div>
     </div>
