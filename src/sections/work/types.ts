@@ -32,6 +32,8 @@ export interface WorkProject {
   collectionSummary?: string;
   metrics?: readonly { label: string; value: string }[];
   assets?: readonly WorkAsset[];
+  bookCategory?: 'medical' | 'teacher-notes' | 'religious';
+  driveUrl?: string;
 }
 
 export type Category = (typeof siteContent.work.filters)[number]['value'];

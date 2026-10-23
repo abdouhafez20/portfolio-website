@@ -187,6 +187,33 @@ export const translations = {
     'home.aboutSnapshot':
       'We believe good academic design serves understanding before style: clear hierarchy, readable type, and space that helps students focus.',
     'home.aboutLink': 'Learn more',
+
+    // Books Page (Stage 3)
+    'books.title': 'Books & Publications',
+    'books.subtitle':
+      'Medical textbooks, academic handouts, and educational publications crafted with editorial precision.',
+    'books.filterAll': 'All',
+    'books.filterMedical': 'Medical Books',
+    'books.filterTeacherNotes': "Teachers' Handouts",
+    'books.filterReligious': 'Religious Books',
+    'books.majorHeading': 'Major Projects',
+    'books.standardHeading': 'Other Projects',
+    'books.religiousEmpty': 'Religious publications and book designs will be added soon.',
+    'books.emptyState': 'No projects found in this category.',
+    'books.viewBook': 'View Project',
+    'books.detailBack': 'Back to Books',
+    'books.openPdf': 'Read Full PDF',
+    'books.openDrive': 'Google Drive Folder',
+    'books.requestWhatsApp': 'Request Project via WhatsApp',
+    'books.previewImages': 'Sample Pages & Previews',
+    'books.lecturesHeading': 'Lectures & Chapters',
+    'books.viewLecture': 'View',
+    'books.lectureComingSoon': 'Coming Soon',
+    'books.otherProjects': 'More Book Projects',
+    'books.role': 'Role',
+    'books.year': 'Year',
+    'books.scope': 'Scope',
+    'books.format': 'Format',
   },
 
   ar: {
@@ -377,6 +404,33 @@ export const translations = {
     'home.aboutSnapshot':
       'نؤمن أن التصميم الأكاديمي الجيد يخدم الفهم قبل الشكل: تسلسل واضح، وخط مقروء، ومساحة تساعد الطالب على التركيز.',
     'home.aboutLink': 'اعرف أكثر',
+
+    // Books Page (Stage 3)
+    'books.title': 'الكتب والمطبوعات',
+    'books.subtitle':
+      'كتب ومراجع طبية، وملازم تعليمية، ومطبوعات أكاديمية مصممة بعناية تحريرية دقيقة.',
+    'books.filterAll': 'الكل',
+    'books.filterMedical': 'كتب طبية',
+    'books.filterTeacherNotes': 'ملازم معلمين',
+    'books.filterReligious': 'كتب دينية',
+    'books.majorHeading': 'المشاريع الرئيسية',
+    'books.standardHeading': 'مشاريع أخرى',
+    'books.religiousEmpty': 'سيتم إضافة المطبوعات والكتب الدينية قريبًا.',
+    'books.emptyState': 'لا توجد مشاريع في هذا التصنيف حاليًا.',
+    'books.viewBook': 'عرض المشروع',
+    'books.detailBack': 'العودة للكتب',
+    'books.openPdf': 'قراءة ملف PDF',
+    'books.openDrive': 'مجلد Google Drive',
+    'books.requestWhatsApp': 'طلب المشروع كاملاً عبر واتساب',
+    'books.previewImages': 'صفحات ونماذج من العمل',
+    'books.lecturesHeading': 'المحاضرات والفصول',
+    'books.viewLecture': 'معاينة',
+    'books.lectureComingSoon': 'قريبًا',
+    'books.otherProjects': 'مشاريع كتب أخرى',
+    'books.role': 'الدور',
+    'books.year': 'السنة',
+    'books.scope': 'النطاق',
+    'books.format': 'الصيغة',
   },
 };
 
@@ -889,6 +943,7 @@ export const workProjects = [
     subtitle:      '16 explanation lectures plus revision files with real sample content.',
     categories:    ['medical-textbooks', 'question-banks', 'summary-notes'],
     categoryLabel: 'Medical Collection',
+    bookCategory:  'medical' as const,
     image:         '/images/samples/behavioral-science/behavioral-science-01.jpg',
     previewImages: [
       '/images/samples/behavioral-science/behavioral-science-01.jpg',
@@ -922,6 +977,7 @@ export const workProjects = [
     subtitle:      'Clinical note systems with image-gallery chapters for respiratory, neurology, hematology, and genitourinary topics.',
     categories:    ['medical-textbooks', 'summary-notes'],
     categoryLabel: 'Medical Notes',
+    bookCategory:  'medical' as const,
     image:         '/images/samples/internal-medicine/internal-medicine-01.jpg',
     previewImages: [
       '/images/samples/internal-medicine/internal-medicine-01.jpg',
@@ -955,6 +1011,7 @@ export const workProjects = [
     subtitle:      'Question-bank pages built for quick review and clean answer scanning.',
     categories:    ['question-banks'],
     categoryLabel: 'Question Bank',
+    bookCategory:  'medical' as const,
     image:         '/images/samples/text-bank/text-bank-01.jpg',
     previewImages: [
       '/images/samples/text-bank/text-bank-01.jpg',
@@ -1022,6 +1079,7 @@ export const workProjects = [
     subtitle:      'Single medical topic with clean educational hierarchy and layout.',
     categories:    ['medical-textbooks'],
     categoryLabel: 'Medical Sample',
+    bookCategory:  'medical' as const,
     image:         '/images/Dr Abdurrahman - PU sample.jpg',
     previewImages: [
       '/images/Dr Abdurrahman - PU sample.jpg',
@@ -1044,6 +1102,7 @@ export const workProjects = [
     subtitle:      'Single-topic medical sample with strong visual explanation flow.',
     categories:    ['medical-textbooks'],
     categoryLabel: 'Medical Sample',
+    bookCategory:  'medical' as const,
     image:         '/images/Dr Abdurrahman - immunity sample.jpg',
     previewImages: [
       '/images/Dr Abdurrahman - immunity sample.jpg',
@@ -1066,6 +1125,8 @@ export const workProjects = [
     subtitle:      'Arabic summaries with polished editorial rhythm and clean typographic structure.',
     categories:    ['non-medical'],
     categoryLabel: 'Non-Medical',
+    // TODO: Confirm project category for Al-Benaa Al-Manhaji with owner (defaulting to teacher-notes)
+    bookCategory:  'teacher-notes' as const,
     image:         '/images/البناء المنهجي.jpg',
     previewImages: [
       '/images/البناء المنهجي.jpg',
