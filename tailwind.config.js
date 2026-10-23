@@ -63,6 +63,7 @@ export default {
         display: ['"Instrument Serif"', 'Georgia', 'serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
         arabic: ['Cairo', 'sans-serif'],
+        amiri: ['Amiri', 'serif'],
       },
       borderRadius: {
         '3xl': '24px',

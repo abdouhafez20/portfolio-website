@@ -1,31 +1,17 @@
+import { type ReactNode, useState, useEffect } from 'react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useDarkMode } from '@/hooks/useDarkMode';
-import { useEffect, lazy, Suspense, useState } from 'react';
-import ScrollProgressBar from '@/components/ScrollProgressBar';
-import BackToTop from '@/components/BackToTop';
-import WhatsAppFAB from '@/components/WhatsAppFAB';
-import CursorGlow from '@/components/CursorGlow';
-import Header from '@/components/Header';
-import ErrorBoundary from '@/components/ErrorBoundary';
-import HeroSection from '@/sections/HeroSection';
-import MarqueeSection from '@/sections/MarqueeSection';
-import TrustedByBar from '@/sections/TrustedByBar';
 
-const WorkSection = lazy(() => import('@/sections/WorkSection'));
-const TestimonialsSection = lazy(() => import('@/sections/TestimonialsSection'));
-const BeforeAfterSection = lazy(() => import('@/sections/BeforeAfterSection'));
-const ServicesSection = lazy(() => import('@/sections/ServicesSection'));
-const AboutSection = lazy(() => import('@/sections/AboutSection'));
-const ContactSection = lazy(() => import('@/sections/ContactSection'));
-const Footer = lazy(() => import('@/components/Footer'));
-
-function SectionSkeleton() {
-  return (
-    <div className="w-full py-24 flex items-center justify-center">
-      <div className="w-8 h-8 border-2 border-current border-t-transparent rounded-full animate-spin opacity-30" />
-    </div>
-  );
-}
+// Unmounted sections preserved in repo for later stages / reference:
+// - HeroSection (src/sections/HeroSection.tsx)
+// - MarqueeSection (src/sections/MarqueeSection.tsx)
+// - TrustedByBar (src/sections/TrustedByBar.tsx)
+// - WorkSection (src/sections/WorkSection.tsx)
+// - BeforeAfterSection (src/sections/BeforeAfterSection.tsx)
+// - TestimonialsSection (src/sections/TestimonialsSection.tsx)
+// - ServicesSection (src/sections/ServicesSection.tsx)
+// - AboutSection (src/sections/AboutSection.tsx)
+// - ContactSection (src/sections/ContactSection.tsx)
 
 function AppLoadingScreen() {
   return (
@@ -41,16 +27,16 @@ function AppLoadingScreen() {
   );
 }
 
-function App() {
-  const lang = useLanguage();
-  const dark = useDarkMode();
+interface AppProps {
+  children?: ReactNode;
+}
+
+export default function App({ children }: AppProps) {
+  useLanguage();
+  useDarkMode();
   const [isInitializing, setIsInitializing] = useState(true);
 
-  useEffect(() => {
-    const html = document.documentElement;
-    html.dir = lang.isAr ? 'rtl' : 'ltr';
-    html.lang = lang.isAr ? 'ar' : 'en';
-  }, [lang.isAr]);
+  // NOTE: Duplicate html dir/lang effect removed — handled only in useLanguage hook
 
   useEffect(() => {
     const timer = window.setTimeout(() => {
@@ -70,43 +56,8 @@ function App() {
           isInitializing ? 'opacity-0' : 'opacity-100'
         }`}
       >
-        <ScrollProgressBar />
-        <Header lang={lang} dark={dark} />
-        <ErrorBoundary>
-          <main>
-            <HeroSection lang={lang} />
-            <MarqueeSection />
-            <TrustedByBar lang={lang} />
-
-            <Suspense fallback={<SectionSkeleton />}>
-              <WorkSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <BeforeAfterSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <TestimonialsSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <ServicesSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <AboutSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <ContactSection lang={lang} />
-            </Suspense>
-            <Suspense fallback={<SectionSkeleton />}>
-              <Footer />
-            </Suspense>
-          </main>
-        </ErrorBoundary>
-        <BackToTop />
-        <WhatsAppFAB />
-        <CursorGlow />
+        {children}
       </div>
     </>
   );
 }
-
-export default App;

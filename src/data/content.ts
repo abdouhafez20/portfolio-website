@@ -1,6 +1,11 @@
 export const translations = {
   en: {
     // Navigation
+    'nav.home': 'Home',
+    'nav.books': 'Books',
+    'nav.graduation': 'Graduation',
+    'nav.interactiveBooks': 'Interactive Books',
+    'nav.presentations': 'Presentations',
     'nav.work': 'Work',
     'nav.beforeAfter': 'Before / After',
     'nav.services': 'Services',
@@ -150,6 +155,14 @@ export const translations = {
     'footer.name': 'Dr Abdurrahman M.',
     'footer.backToTop': 'Back to top',
     'footer.copyright': '2026',
+    'footer.whatsapp': 'Chat on WhatsApp',
+    'footer.pages': 'Pages',
+    'footer.allRightsReserved': 'All rights reserved.',
+
+    // 404 Not Found
+    'notFound.title': 'Page Not Found',
+    'notFound.description': "The page you're looking for doesn't exist or has been moved.",
+    'notFound.backHome': 'Back to Home',
 
     // Toast
     'toast.message': "Message opened — I'll reply within 24 hours.",
@@ -157,6 +170,11 @@ export const translations = {
 
   ar: {
     // Navigation
+    'nav.home': 'الرئيسية',
+    'nav.books': 'الكتب',
+    'nav.graduation': 'حفلات التخرج',
+    'nav.interactiveBooks': 'الكتب التفاعلية',
+    'nav.presentations': 'العروض التقديمية',
     'nav.work': 'أعمالي',
     'nav.beforeAfter': 'قبل وبعد',
     'nav.services': 'خدماتي',
@@ -306,6 +324,14 @@ export const translations = {
     'footer.name': 'د. عبدالرحمن م.',
     'footer.backToTop': 'العودة إلى الأعلى',
     'footer.copyright': '2026',
+    'footer.whatsapp': 'تواصل عبر واتساب',
+    'footer.pages': 'الصفحات',
+    'footer.allRightsReserved': 'جميع الحقوق محفوظة.',
+
+    // 404 Not Found
+    'notFound.title': 'الصفحة غير موجودة',
+    'notFound.description': 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
+    'notFound.backHome': 'العودة للرئيسية',
 
     // Toast
     'toast.message': 'تم فتح البريد الإلكتروني — سأرد خلال 24 ساعة.',
@@ -369,18 +395,24 @@ export const siteContent = {
     whatsapp: externalLinks.whatsapp,
     email: externalLinks.email,
     emailHref: externalLinks.emailHref,
-    contact: '#contact',
-    work: '#work',
+    home: '/',
+    books: '/books',
+    graduation: '/graduation',
+    interactiveBooks: '/interactive-books',
+    presentations: '/presentations',
+    about: '/about',
+    contact: '/about',
+    work: '/books',
     beforeAfter: '#before-after',
     services: '#services',
-    about: '#about',
   },
   navItems: [
-    { key: 'nav.work',        href: '#work' },
-    { key: 'nav.beforeAfter', href: '#before-after' },
-    { key: 'nav.services',    href: '#services' },
-    { key: 'nav.about',       href: '#about' },
-    { key: 'nav.contact',     href: '#contact' },
+    { key: 'nav.home', href: '/' },
+    { key: 'nav.books', href: '/books' },
+    { key: 'nav.graduation', href: '/graduation' },
+    { key: 'nav.interactiveBooks', href: '/interactive-books' },
+    { key: 'nav.presentations', href: '/presentations' },
+    { key: 'nav.about', href: '/about' },
   ],
   socials: [
     { label: 'Behance',   href: externalLinks.behance,   icon: 'briefcase' },

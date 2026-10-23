@@ -1,8 +1,18 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem('portfolio-language');
+          var lang = stored === 'en' ? 'en' : 'ar';
+          document.documentElement.lang = lang;
+          document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        } catch (e) {}
+      })();
+    </script>
     <meta name="theme-color" content="#F5F0E8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0E0E0C" media="(prefers-color-scheme: dark)" />
     <title>Dr. Abdurrahman M. Hafez — Medical Content Designer</title>
@@ -22,6 +32,7 @@
     <link rel="preconnect" href="%VITE_GOOGLE_FONTS_ORIGIN%" />
     <link rel="preconnect" href="%VITE_GOOGLE_FONTS_STATIC_ORIGIN%" crossorigin />
     <link href="%VITE_GOOGLE_FONTS_STYLESHEET_URL%" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap" />
   </head>
   <body class="bg-cream text-ink dark:bg-dark-bg dark:text-dark-text transition-colors duration-300">
     <div id="root"></div>

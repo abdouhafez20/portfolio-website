@@ -1,12 +1,12 @@
-﻿import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { translations } from '@/data/content';
 
 export type Language = 'en' | 'ar';
 
 export function useLanguage() {
   const [lang, setLangState] = useState<Language>(() => {
-    if (typeof window === 'undefined') return 'en';
-    return (localStorage.getItem('portfolio-language') as Language) || 'en';
+    if (typeof window === 'undefined') return 'ar';
+    return (localStorage.getItem('portfolio-language') as Language) || 'ar';
   });
 
   useEffect(() => {

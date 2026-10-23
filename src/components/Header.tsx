@@ -1,25 +1,31 @@
 import { useState, useEffect } from 'react';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X, MessageCircle, Sun, Moon } from 'lucide-react';
 import { useLanguage } from '@/hooks/useLanguage';
 import { useDarkMode } from '@/hooks/useDarkMode';
 import { siteContent } from '@/data/content';
 
 interface HeaderProps {
-  lang: ReturnType<typeof useLanguage>;
-  dark: ReturnType<typeof useDarkMode>;
+  lang?: ReturnType<typeof useLanguage>;
+  dark?: ReturnType<typeof useDarkMode>;
 }
 
 const { brand, links, navItems, header: headerContent } = siteContent;
 
-export default function Header({ lang, dark }: HeaderProps) {
+export default function Header({ lang: propLang, dark: propDark }: HeaderProps = {}) {
+  const hookLang = useLanguage();
+  const hookDark = useDarkMode();
+  const lang = propLang || hookLang;
+  const dark = propDark || hookDark;
+
   const { t, isAr, toggle: toggleLang } = lang;
   const { isDark, toggle: toggleDark } = dark;
 
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const location = useLocation();
 
-  // 🔥 optimized scroll handler
+  // Scroll handler for header shadow
   useEffect(() => {
     let frameId: number | null = null;
 
@@ -42,26 +48,12 @@ export default function Header({ lang, dark }: HeaderProps) {
     };
   }, []);
 
-  // section observer
+  // Close mobile menu on route change
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id]');
+    setMenuOpen(false);
+  }, [location.pathname]);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      { rootMargin: '-40% 0px -40% 0px' }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
-  }, []);
-
-  // lock scroll when menu open
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (!menuOpen) return;
     const prev = document.body.style.overflow;
@@ -71,72 +63,70 @@ export default function Header({ lang, dark }: HeaderProps) {
     };
   }, [menuOpen]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault();
-    setMenuOpen(false);
-
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
-  const waHref = links.whatsapp ?? '#contact';
-  const waIsExternal = /^(https?:|\/\/|mailto:)/.test(String(waHref));
+  const waHref = links.whatsapp;
 
   return (
     <>
       {/* HEADER */}
       <header
         className={`sticky top-0 z-40 bg-cream/95 dark:bg-dark-bg/95 backdrop-blur-md transition-shadow duration-300 will-change-transform ${
-          scrolled
-            ? 'shadow-md dark:shadow-lg'
-            : ''
+          scrolled ? 'shadow-md dark:shadow-lg' : ''
         }`}
       >
         <div className="max-w-screen-xl mx-auto px-4 sm:px-5 md:px-10 flex items-center justify-between h-16 gap-3">
-
-          {/* Logo */}
-          <a href="#" className="flex min-w-0 items-center gap-3">
-            <span className="shrink-0 font-display text-xl text-forest">
-              {brand.shortName}
-            </span>
+          {/* Logo / Brand */}
+          <Link
+            to="/"
+            className="flex min-w-0 items-center gap-3 transition-opacity duration-200 hover:opacity-90"
+            aria-label={isAr ? 'د. عبدالرحمن حافظ — الرئيسية' : `${brand.fullName} — Home`}
+          >
+            {isAr ? (
+              <span className="shrink-0 font-amiri text-2xl font-bold text-forest dark:text-dark-forest tracking-tight">
+                د. عبدالرحمن حافظ
+              </span>
+            ) : (
+              <span className="shrink-0 font-display text-xl text-forest dark:text-dark-forest">
+                {brand.shortName}
+              </span>
+            )}
 
             <div className="hidden min-w-0 sm:block">
-              <div className="truncate text-sm font-semibold text-ink dark:text-dark-text">
-                {brand.fullName}
+              <div className="truncate text-xs font-semibold text-ink dark:text-dark-text">
+                {isAr ? brand.displayName : brand.fullName}
               </div>
-              <div className="text-[9px] uppercase tracking-widest text-mist">
+              <div className="text-[9px] uppercase tracking-widest text-mist dark:text-dark-muted">
                 {t('header.subtitle')}
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8" role="navigation" aria-label="Main">
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-7" role="navigation" aria-label="Main">
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className={`text-[10px] uppercase tracking-[0.3em] font-medium transition-colors duration-200 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-forest/50 ${
-                  activeSection === item.href
-                    ? 'text-forest dark:text-dark-forest'
-                    : 'text-mist hover:text-ink dark:hover:text-dark-text'
-                }`}
-                aria-current={activeSection === item.href ? 'page' : undefined}
+                to={item.href}
+                end={item.href === '/'}
+                className={({ isActive }) =>
+                  `text-[10px] uppercase tracking-[0.22em] font-medium transition-colors duration-200 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-forest/50 ${
+                    isActive
+                      ? 'text-forest dark:text-dark-forest font-semibold'
+                      : 'text-mist hover:text-ink dark:hover:text-dark-text'
+                  }`
+                }
               >
                 {t(item.key)}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
           {/* Actions */}
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-
             {/* WhatsApp */}
             <a
               href={waHref}
-              target={waIsExternal ? '_blank' : undefined}
-              rel={waIsExternal ? 'noopener noreferrer' : undefined}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hidden md:flex items-center gap-2 bg-wa-green hover:bg-wa-green/90 text-white text-[10px] px-4 py-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-wa-green/50 font-medium"
               aria-label="Contact on WhatsApp"
             >
@@ -144,17 +134,7 @@ export default function Header({ lang, dark }: HeaderProps) {
               {headerContent.whatsappLabel}
             </a>
 
-            {/* Hire */}
-            <a
-              href={links.contact}
-              onClick={(e) => handleNavClick(e, links.contact)}
-              className="hidden md:inline-flex items-center gap-2 bg-forest hover:bg-forest-hover dark:bg-dark-forest dark:hover:bg-dark-forest/90 text-white text-[10px] px-5 py-2 rounded-full transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-forest/50 font-medium"
-            >
-              <span className="w-2 h-2 bg-white rounded-full animate-pulse" />
-              {headerContent.hireLabel}
-            </a>
-
-            {/* Language */}
+            {/* Language Toggle */}
             <button
               onClick={toggleLang}
               className="w-9 h-9 rounded-full border border-ink/20 dark:border-white/15 flex items-center justify-center text-xs font-medium transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-forest/50"
@@ -164,7 +144,7 @@ export default function Header({ lang, dark }: HeaderProps) {
               {isAr ? 'EN' : 'ع'}
             </button>
 
-            {/* Dark Mode */}
+            {/* Dark Mode Toggle */}
             <button
               onClick={toggleDark}
               className="w-9 h-9 rounded-full border border-ink/20 dark:border-white/15 flex items-center justify-center transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-forest/50 text-ink dark:text-dark-text"
@@ -174,7 +154,7 @@ export default function Header({ lang, dark }: HeaderProps) {
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu Button */}
             <button
               onClick={() => setMenuOpen(true)}
               className="lg:hidden w-10 h-10 rounded-full border border-ink/20 dark:border-white/15 flex items-center justify-center transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-forest/50"
@@ -190,9 +170,10 @@ export default function Header({ lang, dark }: HeaderProps) {
       {/* MOBILE MENU */}
       {menuOpen && (
         <div className="fixed inset-0 z-[100] bg-cream/98 dark:bg-dark-bg/98 backdrop-blur-lg flex flex-col overflow-y-auto animate-fadeIn">
-
           <div className="flex justify-between items-center p-5 border-b border-card-border dark:border-dark-border">
-            <span className="font-display text-lg font-semibold text-ink dark:text-dark-text">{headerContent.menuLabel}</span>
+            <span className="font-display text-lg font-semibold text-ink dark:text-dark-text">
+              {headerContent.menuLabel}
+            </span>
             <button
               onClick={() => setMenuOpen(false)}
               className="w-10 h-10 rounded-full border border-ink/20 dark:border-white/15 flex items-center justify-center transition-colors duration-200 hover:bg-black/5 dark:hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-forest/50"
@@ -202,16 +183,23 @@ export default function Header({ lang, dark }: HeaderProps) {
             </button>
           </div>
 
-          <nav className="flex-1 flex flex-col items-center justify-center gap-5 py-8">
+          <nav className="flex-1 flex flex-col items-center justify-center gap-5 py-8" role="navigation" aria-label="Mobile">
             {navItems.map((item) => (
-              <a
+              <NavLink
                 key={item.href}
-                href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
-                className="max-w-full break-words px-4 py-2 text-center font-display text-2xl text-ink transition-colors duration-200 hover:text-forest focus:outline-none ring-forest/50 focus:ring-2 dark:text-dark-text dark:hover:text-dark-forest sm:text-3xl"
+                to={item.href}
+                end={item.href === '/'}
+                onClick={() => setMenuOpen(false)}
+                className={({ isActive }) =>
+                  `max-w-full break-words px-4 py-2 text-center font-display text-2xl transition-colors duration-200 focus:outline-none ring-forest/50 focus:ring-2 sm:text-3xl ${
+                    isActive
+                      ? 'text-forest dark:text-dark-forest font-semibold'
+                      : 'text-ink dark:text-dark-text hover:text-forest dark:hover:text-dark-forest'
+                  }`
+                }
               >
                 {t(item.key)}
-              </a>
+              </NavLink>
             ))}
           </nav>
 
@@ -237,19 +225,12 @@ export default function Header({ lang, dark }: HeaderProps) {
 
             <a
               href={waHref}
-              target={waIsExternal ? '_blank' : undefined}
-              rel={waIsExternal ? 'noopener noreferrer' : undefined}
-              className="bg-wa-green hover:bg-wa-green/90 text-white px-5 py-3 rounded-full text-sm font-medium transition-colors duration-200 text-center"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-wa-green hover:bg-wa-green/90 text-white px-5 py-3 rounded-full text-sm font-medium transition-colors duration-200 text-center flex items-center justify-center gap-2"
             >
+              <MessageCircle size={16} />
               {headerContent.whatsappLabel}
-            </a>
-
-            <a
-              href={links.contact}
-              onClick={(e) => handleNavClick(e, links.contact)}
-              className="btn-shimmer text-sm text-center w-full"
-            >
-              {headerContent.mobileContactLabel}
             </a>
           </div>
         </div>
