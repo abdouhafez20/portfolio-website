@@ -166,6 +166,27 @@ export const translations = {
 
     // Toast
     'toast.message': "Message opened — I'll reply within 24 hours.",
+
+    // Home Page (Stage 2)
+    'home.heroTitle': 'We design knowledge to last.',
+    'home.heroBlurb':
+      'Medical and academic books, graduation identities and jackets, and presentations — crafted with editorial care for students and institutions.',
+    'home.heroWhatsApp': 'Start your project on WhatsApp',
+    'home.pillarBooksTitle': 'Books & Print',
+    'home.pillarBooksDesc': 'Medical books and educational handouts with clear academic typesetting.',
+    'home.pillarGraduationTitle': 'Graduation Jackets & Identities',
+    'home.pillarGraduationDesc': 'Visual batch identities, from custom jacket design to graduation yearbooks.',
+    'home.pillarPresentationsTitle': 'Presentations',
+    'home.pillarPresentationsDesc': 'Medical and academic slides structured with clear visual sequence.',
+    'home.interactiveTitle': 'Digital Interactive Books',
+    'home.interactiveSubtitle':
+      'Browse medical and academic publications with an engaging flipbook reading experience.',
+    'home.interactiveBtn': 'Read the interactive book!',
+    'home.interactivePlaceholder': 'Interactive flipbook preview',
+    'home.graduationPlaceholder': 'Graduation batch identity preview',
+    'home.aboutSnapshot':
+      'We believe good academic design serves understanding before style: clear hierarchy, readable type, and space that helps students focus.',
+    'home.aboutLink': 'Learn more',
   },
 
   ar: {
@@ -335,6 +356,27 @@ export const translations = {
 
     // Toast
     'toast.message': 'تم فتح البريد الإلكتروني — سأرد خلال 24 ساعة.',
+
+    // Home Page (Stage 2)
+    'home.heroTitle': 'نصمم المعرفة لتبقى',
+    'home.heroBlurb':
+      'تصميم وتنسيق كتب ومطبوعات طبية وأكاديمية، وهويات وجواكت التخرج، وعروض تقديمية احترافية — بعناية تحريرية تخدم الطالب والمؤسسة.',
+    'home.heroWhatsApp': 'ابدأ مشروعك عبر واتساب',
+    'home.pillarBooksTitle': 'كتب ومطبوعات',
+    'home.pillarBooksDesc': 'كتب طبية وملازم تعليمية بتنسيق أكاديمي واضح.',
+    'home.pillarGraduationTitle': 'جواكت وهويات التخرج',
+    'home.pillarGraduationDesc': 'هويات بصرية للدفعات، من تصميم الجاكت إلى ملف التخرج.',
+    'home.pillarPresentationsTitle': 'العروض التقديمية',
+    'home.pillarPresentationsDesc': 'شرائح طبية وأكاديمية بتسلسل بصري واضح.',
+    'home.interactiveTitle': 'الكتب التفاعلية الرقمية',
+    'home.interactiveSubtitle':
+      'تصفح الكتب والمطبوعات الطبية والأكاديمية بتجربة تقليب تفاعلية وسلسة.',
+    'home.interactiveBtn': 'اقرأ الكتاب التفاعلي!',
+    'home.interactivePlaceholder': 'قريبًا: معاينة تفاعلية للكتاب',
+    'home.graduationPlaceholder': 'معاينة تصاميم جواكت وهويات التخرج',
+    'home.aboutSnapshot':
+      'نؤمن أن التصميم الأكاديمي الجيد يخدم الفهم قبل الشكل: تسلسل واضح، وخط مقروء، ومساحة تساعد الطالب على التركيز.',
+    'home.aboutLink': 'اعرف أكثر',
   },
 };
 
